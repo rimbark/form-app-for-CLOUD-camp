@@ -1,0 +1,9 @@
+.container {
+  width: 852px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  input {
+    width: 400px;
+  }
+}

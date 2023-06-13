@@ -1,0 +1,12 @@
+.container {
+  width: 852px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+.headBlockContainerItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
