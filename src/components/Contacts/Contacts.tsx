@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { addContactsData } from '../../redux/reducers/ContactsSlice'
+import { addContactsData } from '../../redux/reducers/contactsSlice'
 import { contactsSchema } from '../../schemas/contactsSchema'
 import { ContactsDataTypes } from '../../types/contactsData.types'
 import styles from './Contacts.module.scss'
@@ -36,7 +36,7 @@ export const Contacts = () => {
 
   const onSubmit = (data: ContactsDataTypes) => {
     dispatch(addContactsData(data))
-    navigate('/step_1')
+    navigate('registration/step_1')
   }
 
   useEffect(() => {

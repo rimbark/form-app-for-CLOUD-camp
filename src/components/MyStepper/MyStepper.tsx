@@ -1,0 +1,51 @@
+import {
+  Progress,
+  Step,
+  StepIcon,
+  StepIndicator,
+  Stepper,
+  StepStatus,
+  useSteps,
+} from '@chakra-ui/react'
+import React, { useEffect } from 'react'
+import { useAppSelector } from '../../hooks/redux'
+import styles from './MyStepper.module.scss'
+
+export const MyStepper = () => {
+  const { container } = styles
+
+  const stepsData = useAppSelector((state) => state.stepReducer)
+
+  const { activeStep, setActiveStep } = useSteps({
+    index: stepsData.currentStep,
+    count: stepsData.steps.length,
+  })
+  const max = stepsData.steps.length - 1
+  const progressPercent = (activeStep / max) * 100
+
+  useEffect(() => {
+    setActiveStep(stepsData.currentStep)
+  }, [stepsData.currentStep])
+
+  return (
+    <div className={container}>
+      <Stepper size="sm" index={activeStep} gap="0">
+        {stepsData.steps.map((step) => (
+          <Step key={step.title}>
+            <StepIndicator zIndex={3} bg="white">
+              <StepStatus complete={<StepIcon />} />
+            </StepIndicator>
+          </Step>
+        ))}
+      </Stepper>
+      <Progress
+        value={progressPercent}
+        position="absolute"
+        height="3px"
+        width="full"
+        top="76px"
+        zIndex={0}
+      />
+    </div>
+  )
+}
