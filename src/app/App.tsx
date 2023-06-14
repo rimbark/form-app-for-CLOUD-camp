@@ -1,33 +1,26 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import {
-  homePageRoutes,
-  registrationPageRoutes,
-  stepsRoutes,
-} from '../routes/routes'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import { HomePage } from '../pages/HomePage/HomePage'
+import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage'
+import { Step1 } from '../widgets/Steps/Step1/Step1'
+import { Step2 } from '../widgets/Steps/Step2/Step2'
+import { Step3 } from '../widgets/Steps/Step3/Step3'
 import styles from './App.module.scss'
 
 export const App = () => {
   const { container } = styles
+  const navigate = useNavigate()
   return (
     <ChakraProvider>
       <div className={container}>
         <Routes>
-          {homePageRoutes.map((route) => (
-            <Route key={route.id} path={route.path} element={route.element} />
-          ))}
-          {registrationPageRoutes.map((route) => (
-            <Route key={route.id} path={route.path} element={route.element}>
-              {stepsRoutes.map((route) => (
-                <Route
-                  key={route.id}
-                  path={route.path}
-                  element={route.element}
-                />
-              ))}
-            </Route>
-          ))}
+          <Route path="/" element={<HomePage />} />
+          <Route path={'registration/*'} element={<RegistrationPage />}>
+            <Route path="step_1" element={<Step1 navigate={navigate} />} />
+            <Route path="step_2" element={<Step2 navigate={navigate} />} />
+            <Route path="step_3" element={<Step3 navigate={navigate} />} />
+          </Route>
         </Routes>
       </div>
     </ChakraProvider>

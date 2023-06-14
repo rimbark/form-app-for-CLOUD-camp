@@ -1,12 +1,11 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useAppDispatch } from '../../hooks/redux'
-import { stepBack, stepForward } from '../../redux/reducers/stepSlice'
+import { useAppDispatch } from '../../../hooks/redux'
+import { stepBack, stepForward } from '../../../redux/reducers/stepperSlice'
+import { StepsPropsTypes } from '../stepsProps.types'
 import styles from './Step2.module.scss'
 
-export const Step2 = () => {
+export const Step2 = ({ navigate }: StepsPropsTypes) => {
   const { container } = styles
-  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const onReady = () => {
     dispatch(stepForward())
@@ -18,7 +17,7 @@ export const Step2 = () => {
   }
   return (
     <div className={container}>
-      STEP 2<button onClick={onForget}>nazad to home page</button>
+      STEP 2<button onClick={onForget}>nazad to step1</button>
       <button onClick={onReady}>to step 3</button>
     </div>
   )

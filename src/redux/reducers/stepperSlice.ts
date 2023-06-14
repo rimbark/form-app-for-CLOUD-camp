@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initialStepType } from '../../types/steps.types'
+import { initialStepperType } from '../../types/stepperSteps.types'
 
-const initialState: initialStepType = {
+const initialState: initialStepperType = {
   steps: [
     { title: 'First', description: 'Contact Info' },
     { title: 'Second', description: 'Date & Time' },
@@ -10,7 +10,7 @@ const initialState: initialStepType = {
   currentStep: 1,
 }
 
-const stepSlicer = createSlice({
+const stepperSlicer = createSlice({
   name: 'step',
   initialState,
   reducers: {
@@ -22,5 +22,5 @@ const stepSlicer = createSlice({
     },
   },
 })
-export const { stepForward, stepBack } = stepSlicer.actions
-export default stepSlicer.reducer
+export const { stepForward, stepBack } = stepperSlicer.actions
+export default stepperSlicer.reducer

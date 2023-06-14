@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import contactsReducer from './reducers/contactsSlice'
-import stepReducer from './reducers/stepSlice'
+import step1Reducer from './reducers/step1Slice'
+import stepperReducer from './reducers/stepperSlice'
 
 export const rootReducer = combineReducers({
   contactsReducer,
-  stepReducer,
+  stepperReducer,
+  step1Reducer,
 })
 
 export const setupStore = () => {

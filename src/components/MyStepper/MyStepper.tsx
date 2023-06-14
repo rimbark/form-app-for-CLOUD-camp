@@ -14,7 +14,7 @@ import styles from './MyStepper.module.scss'
 export const MyStepper = () => {
   const { container } = styles
 
-  const stepsData = useAppSelector((state) => state.stepReducer)
+  const stepsData = useAppSelector((state) => state.stepperReducer)
 
   const { activeStep, setActiveStep } = useSteps({
     index: stepsData.currentStep,
@@ -29,11 +29,11 @@ export const MyStepper = () => {
 
   return (
     <div className={container}>
-      <Stepper size="sm" index={activeStep} gap="0">
+      <Stepper size="xs" index={activeStep - 1} gap="0">
         {stepsData.steps.map((step) => (
           <Step key={step.title}>
             <StepIndicator zIndex={3} bg="white">
-              <StepStatus complete={<StepIcon />} />
+              <StepStatus complete={<StepIcon />} active="" />
             </StepIndicator>
           </Step>
         ))}
@@ -43,7 +43,7 @@ export const MyStepper = () => {
         position="absolute"
         height="3px"
         width="full"
-        top="76px"
+        top="73px"
         zIndex={0}
       />
     </div>

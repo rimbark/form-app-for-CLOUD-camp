@@ -1,10 +1,4 @@
-import {
-  Button,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Input,
-} from '@chakra-ui/react'
+import { FormControl, FormHelperText, FormLabel, Input } from '@chakra-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -16,7 +10,7 @@ import { ContactsDataTypes } from '../../types/contactsData.types'
 import styles from './Contacts.module.scss'
 
 export const Contacts = () => {
-  const { container } = styles
+  const { container, buttonStart } = styles
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const initialData = useAppSelector((state) => state.contactsReducer)
@@ -42,6 +36,7 @@ export const Contacts = () => {
   useEffect(() => {
     setContactsData(initialData)
   }, [])
+  console.log(errors)
   return (
     <form className={container} onSubmit={handleSubmit(onSubmit)}>
       <FormControl>
@@ -50,7 +45,9 @@ export const Contacts = () => {
           variant="outline"
           backgroundColor="#0000000A"
           type="phone"
-          {...register('phone')}
+          {...register('phone', {
+            required: true,
+          })}
           placeholder="+7 999 999-99-99"
         />
         <FormHelperText color="red.400">{errors.phone?.message}</FormHelperText>
@@ -61,22 +58,16 @@ export const Contacts = () => {
           variant="outline"
           backgroundColor="#0000000A"
           type="email"
-          {...register('email')}
+          {...register('email', {
+            required: true,
+          })}
           placeholder="tim.jennings@example.com"
         />
         <FormHelperText color="red.400">{errors.email?.message}</FormHelperText>
       </FormControl>
-      <Button
-        backgroundColor="#5558FA"
-        color="#FFFFFF"
-        fontSize="14px"
-        w="79px"
-        h="44px"
-        value="Начать"
-        type="submit"
-      >
+      <button id="button-start" type="submit" className={buttonStart}>
         Начать
-      </Button>
+      </button>
     </form>
   )
 }

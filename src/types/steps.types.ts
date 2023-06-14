@@ -1,9 +1,6 @@
-export interface initialStepType {
-  steps: stepType[]
-  currentStep: number
-}
-
-interface stepType {
-  title: string
-  description: string
+export interface initialStep1Type {
+  nickname: string
+  name: string
+  sername: string
+  sex: 'man' | 'woman' | null
 }
