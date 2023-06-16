@@ -121,20 +121,25 @@ export const RegistrationStep2 = ({
         </FormControl>
         <FormControl>
           <FormLabel>Radio group</FormLabel>
-          <Stack>
-            {boxes.map((item, index) => (
-              <Radio
-                key={item.toString()}
-                id={`field-radio-group-option-${index}`}
-                value={item}
-                size="md"
-                defaultChecked={initialAdvantages.radio === item}
-                {...register(`radio.${index}`)}
-              >
-                {item}
-              </Radio>
-            ))}
-          </Stack>
+          {useMemo(
+            () => (
+              <Stack>
+                {boxes.map((item, index) => (
+                  <Radio
+                    key={item.toString()}
+                    id={`field-radio-group-option-${index}`}
+                    defaultChecked={initialAdvantages.radio === item}
+                    size="md"
+                    value={item}
+                    {...register(`radio.${index}`)}
+                  >
+                    {item}
+                  </Radio>
+                ))}
+              </Stack>
+            ),
+            []
+          )}
         </FormControl>
         <div className={buttonsContainer}>
           <NavButtonBack />

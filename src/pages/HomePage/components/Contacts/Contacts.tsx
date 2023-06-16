@@ -8,12 +8,11 @@ import { useNavigate } from 'react-router-dom'
 import { addContactsData } from 'redux/reducers/contactsSlice'
 import { contactsSchema } from 'schemas/contactsSchema'
 import { ContactsDataTypes } from 'types/contactsData.types'
-import {
-  MAIL_PLACEHOLDER,
-  NUMBER_INPUT_MASK,
-  NUMBER_PLACEHOLDER,
-} from './contacts.constants'
 import styles from './Contacts.module.scss'
+
+export const NUMBER_INPUT_MASK = '+7(***)-***-**-**'
+export const NUMBER_PLACEHOLDER = '+7(000)000-00-00'
+export const MAIL_PLACEHOLDER = 'tim.jennings@example.com'
 
 export const Contacts = () => {
   const { container, buttonStart } = styles
