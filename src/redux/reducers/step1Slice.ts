@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { initialStep1Type } from '../../types/steps.types'
+import { InitialStep1Type } from '../../types/steps.types'
 
-const initialState: initialStep1Type = {
+const initialState: InitialStep1Type = {
   nickname: '',
   name: '',
   sername: '',
@@ -12,7 +12,7 @@ const step1Slice = createSlice({
   name: 'step1',
   initialState,
   reducers: {
-    addData: (state, action: PayloadAction<initialStep1Type>) => {
+    addData: (state, action: PayloadAction<InitialStep1Type>) => {
       state.nickname = action.payload.nickname
       state.name = action.payload.name
       state.sername = action.payload.sername

@@ -2,6 +2,7 @@ import { FormControl, FormHelperText, FormLabel, Input } from '@chakra-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import InputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { addContactsData } from '../../redux/reducers/contactsSlice'
@@ -42,13 +43,13 @@ export const Contacts = () => {
       <FormControl>
         <FormLabel>Номер телефона</FormLabel>
         <Input
-          variant="outline"
-          backgroundColor="#0000000A"
-          type="phone"
+          as={InputMask}
+          mask="+7(***)-***-**-**"
+          maskChar={null}
+          placeholder="+7(000)000-00-00"
           {...register('phone', {
             required: true,
           })}
-          placeholder="+7 999 999-99-99"
         />
         <FormHelperText color="red.400">{errors.phone?.message}</FormHelperText>
       </FormControl>

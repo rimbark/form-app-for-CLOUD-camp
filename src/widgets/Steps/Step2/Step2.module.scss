@@ -1,6 +1,76 @@
 .container {
+  width: 680px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 24px;
+
+  input {
+    width: 300px;
+    height: 44px;
+  }
+}
+
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputWithError {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 10px;
+}
+
+.appendButton {
+  cursor: pointer;
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--color-main);
+  position: relative;
+
+}
+
+.appendButton::after {
+  content: '';
+  position: absolute;
+  top: 23px;
+  left: 15px;
+  width: 20px;
+  height: 3px;
+  background-color: var(--color-main);
+}
+
+.appendButton::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 23px;
+  width: 3px;
+  height: 20px;
+  background-color: var(--color-main);
+}
+
+.inputsArray {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

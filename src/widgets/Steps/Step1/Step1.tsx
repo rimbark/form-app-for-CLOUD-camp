@@ -13,7 +13,7 @@ import { NavButtonForward } from '../../../components/NavButtons/NavButtonForwar
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
 import { addData } from '../../../redux/reducers/step1Slice'
 import { step1Schema } from '../../../schemas/step1Schema'
-import { initialStep1Type } from '../../../types/steps.types'
+import { InitialStep1Type } from '../../../types/steps.types'
 import { StepsPropsTypes } from '../stepsProps.types'
 import { sexNames } from './step1.constants'
 import styles from './Step1.module.scss'
@@ -35,7 +35,7 @@ export const Step1 = ({ navigate }: StepsPropsTypes) => {
     reValidateMode: 'onBlur',
   })
 
-  const onSubmit = (data: initialStep1Type) => {
+  const onSubmit = (data: InitialStep1Type) => {
     dispatch(addData(data))
     navigate('registration/step_2/')
   }
