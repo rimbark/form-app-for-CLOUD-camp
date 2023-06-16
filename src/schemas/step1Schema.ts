@@ -1,5 +1,5 @@
+import { SexNames } from 'pages/RegistrationPage/components/RegistrationSteps/RegistrationStep1/registrationStep1.constants'
 import { z } from 'zod'
-import { sexNames } from '../widgets/Steps/Step1/step1.constants'
 
 export const step1Schema = z.object({
   nickname: z
@@ -20,5 +20,5 @@ export const step1Schema = z.object({
     .min(1, { message: 'Required field to fill' })
     .max(50, { message: 'Must be 50 or fewer characters long' })
     .regex(/^[a-zA-Zа-яА-Я]+$/, 'The username must contain only letters'),
-  sex: z.nativeEnum(sexNames),
+  sex: z.nativeEnum(SexNames),
 })

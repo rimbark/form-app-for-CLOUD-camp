@@ -1,5 +1,5 @@
 import { NavigateFunction } from 'react-router-dom'
 
-export interface StepsPropsTypes {
+export interface RegistrationStepsPropsTypes {
   navigate: NavigateFunction
 }

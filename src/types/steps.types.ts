@@ -8,5 +8,5 @@ export interface InitialStep1Type {
 export interface InitialStep2Type {
   advantages: string[]
   checkBoxes: number[]
-  radioBox: number | null
+  radio: number | null
 }

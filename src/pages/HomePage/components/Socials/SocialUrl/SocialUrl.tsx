@@ -1,5 +1,5 @@
+import fileImage from 'images/FileHomePage.png'
 import React from 'react'
-import fileImage from '../../images/FileHomePage.png'
 import styles from './SocialUrl.module.scss'
 import { SocialUrlPropsTypes } from './SocialUrlPropsTypes.types'
 

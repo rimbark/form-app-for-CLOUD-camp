@@ -7,11 +7,11 @@ import {
   StepStatus,
   useSteps,
 } from '@chakra-ui/react'
+import { useAppSelector } from 'hooks/redux'
 import React, { useEffect } from 'react'
-import { useAppSelector } from '../../hooks/redux'
-import styles from './MyStepper.module.scss'
+import styles from './FormStepper.module.scss'
 
-export const MyStepper = () => {
+export const FormStepper = () => {
   const { container } = styles
 
   const stepsData = useAppSelector((state) => state.stepperReducer)

@@ -6,23 +6,23 @@ import {
   FormLabel,
   IconButton,
   Input,
+  Radio,
   Stack,
 } from '@chakra-ui/react'
+import { NavButtonBack } from 'components/NavButtons/NavButtonBack/NavButtonBack'
+import { NavButtonForward } from 'components/NavButtons/NavButtonForward/NavButtonForward'
+import { useAppDispatch, useAppSelector } from 'hooks/redux'
 import React, { useMemo } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
-import { NavButtonBack } from '../../../components/NavButtons/NavButtonBack/NavButtonBack'
-import { NavButtonForward } from '../../../components/NavButtons/NavButtonForward/NavButtonForward'
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
-import {
-  changeAdvantages,
-  changeCheckBoxes,
-} from '../../../redux/reducers/step2Slice'
-import { StepsPropsTypes } from '../stepsProps.types'
-import { boxes } from './step2.constants'
-import styles from './Step2.module.scss'
-import { Step2FormData } from './step2.types'
+import { changeAdvantages, changeCheckBoxes } from 'redux/reducers/step2Slice'
+import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
+import { boxes } from './registrationStep2.constants'
+import styles from './RegistrationStep2.module.scss'
+import { Step2FormData } from './registrationStep2.types'
 
-export const Step2 = ({ navigate }: StepsPropsTypes) => {
+export const RegistrationStep2 = ({
+  navigate,
+}: RegistrationStepsPropsTypes) => {
   const {
     container,
     formContainer,
@@ -104,21 +104,37 @@ export const Step2 = ({ navigate }: StepsPropsTypes) => {
               <Stack direction={['row', 'column']}>
                 {boxes.map((item, index) => (
                   <Checkbox
-                    key={item.value.toString()}
-                    defaultChecked={initialAdvantages.checkBoxes.includes(
-                      item.value
-                    )}
+                    key={item.toString()}
+                    id={`field-checkbox-group-option-${index}`}
+                    defaultChecked={initialAdvantages.checkBoxes.includes(item)}
                     size="md"
-                    value={item.value}
+                    value={item}
                     {...register(`checkBoxes.${index}`)}
                   >
-                    {item.value}
+                    {item}
                   </Checkbox>
                 ))}
               </Stack>
             ),
             []
           )}
+        </FormControl>
+        <FormControl>
+          <FormLabel>Radio group</FormLabel>
+          <Stack>
+            {boxes.map((item, index) => (
+              <Radio
+                key={item.toString()}
+                id={`field-radio-group-option-${index}`}
+                value={item}
+                size="md"
+                defaultChecked={initialAdvantages.radio === item}
+                {...register(`radio.${index}`)}
+              >
+                {item}
+              </Radio>
+            ))}
+          </Stack>
         </FormControl>
         <div className={buttonsContainer}>
           <NavButtonBack />

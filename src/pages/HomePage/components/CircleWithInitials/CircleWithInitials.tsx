@@ -1,5 +1,5 @@
 import React from 'react'
-import { InitialsPropsTypes } from '../../types/initials.types'
+import { InitialsPropsTypes } from 'types/initials.types'
 import styles from './CircleWithInitials.module.scss'
 
 export const CircleWithInitials = ({ name, lastname }: InitialsPropsTypes) => {

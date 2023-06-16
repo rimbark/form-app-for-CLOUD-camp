@@ -6,19 +6,21 @@ import {
   Select,
 } from '@chakra-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { NavButtonBack } from 'components/NavButtons/NavButtonBack/NavButtonBack'
+import { NavButtonForward } from 'components/NavButtons/NavButtonForward/NavButtonForward'
+import { useAppDispatch, useAppSelector } from 'hooks/redux'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { NavButtonBack } from '../../../components/NavButtons/NavButtonBack/NavButtonBack'
-import { NavButtonForward } from '../../../components/NavButtons/NavButtonForward/NavButtonForward'
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux'
-import { addData } from '../../../redux/reducers/step1Slice'
-import { step1Schema } from '../../../schemas/step1Schema'
-import { InitialStep1Type } from '../../../types/steps.types'
-import { StepsPropsTypes } from '../stepsProps.types'
-import { sexNames } from './step1.constants'
-import styles from './Step1.module.scss'
+import { addData } from 'redux/reducers/step1Slice'
+import { step1Schema } from 'schemas/step1Schema'
+import { InitialStep1Type } from 'types/steps.types'
+import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
+import { SexNames } from './registrationStep1.constants'
+import styles from './RegistrationStep1.module.scss'
 
-export const Step1 = ({ navigate }: StepsPropsTypes) => {
+export const RegistrationStep1 = ({
+  navigate,
+}: RegistrationStepsPropsTypes) => {
   const { container, buttonsContainer, formContainer } = styles
   const dispatch = useAppDispatch()
 
@@ -93,11 +95,11 @@ export const Step1 = ({ navigate }: StepsPropsTypes) => {
             <option value="defaultOption" hidden>
               Не выбрано
             </option>
-            <option id="field-sex-option-man" value={sexNames.MAN}>
-              {sexNames.MAN}
+            <option id="field-sex-option-man" value={SexNames.MAN}>
+              {SexNames.MAN}
             </option>
-            <option id="field-sex-option-woman" value={sexNames.WOMAN}>
-              {sexNames.WOMAN}
+            <option id="field-sex-option-woman" value={SexNames.WOMAN}>
+              {SexNames.WOMAN}
             </option>
           </Select>
           <FormHelperText fontSize="12px">

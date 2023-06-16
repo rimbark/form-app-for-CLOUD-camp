@@ -1,7 +1,7 @@
+import { BreakLine } from 'components/BreakLine/BreakLine'
 import React from 'react'
-import { BreakLine } from '../../components/BreakLine/BreakLine'
-import { Contacts } from '../../components/Contacts/Contacts'
-import { HomePageHeader } from '../../components/HomePageHeader/HomePageHeader'
+import { Contacts } from './components/Contacts/Contacts'
+import { HomePageHeader } from './components/HomePageHeader/HomePageHeader'
 import { nameLastName } from './HomePage.constants'
 import styles from './HomePage.module.scss'
 

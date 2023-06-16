@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { InitialStep2Type } from '../../types/steps.types'
+import { InitialStep2Type } from 'types/steps.types'
 
 const initialState: InitialStep2Type = {
   advantages: [''],
   checkBoxes: [2],
-  radioBox: null,
+  radio: null,
 }
 
 const step2Slice = createSlice({
@@ -17,9 +17,13 @@ const step2Slice = createSlice({
     changeCheckBoxes: (state, action: PayloadAction<number[]>) => {
       state.checkBoxes = action.payload
     },
+    changeRadioBoxes: (state, action: PayloadAction<number>) => {
+      state.radio = action.payload
+    },
   },
 })
 
-export const { changeAdvantages, changeCheckBoxes } = step2Slice.actions
+export const { changeAdvantages, changeCheckBoxes, changeRadioBoxes } =
+  step2Slice.actions
 
 export default step2Slice.reducer

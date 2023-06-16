@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
-import { MyStepper } from '../../components/MyStepper/MyStepper'
+import { FormStepper } from './components/FormStepper/FormStepper'
 import styles from './RegistrationPage.module.scss'
 
 export const RegistrationPage = () => {
@@ -8,7 +8,7 @@ export const RegistrationPage = () => {
   const navigate = useNavigate()
   return (
     <div className={container}>
-      <MyStepper />
+      <FormStepper />
       <div className={changingContainer}>
         <Outlet context={navigate} />
       </div>

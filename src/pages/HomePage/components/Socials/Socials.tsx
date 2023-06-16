@@ -1,7 +1,7 @@
 import React from 'react'
-import { SocialUrl } from '../SocialUrl/SocialUrl'
 import { socialNetworks } from './Socials.constants'
 import styles from './Socials.module.scss'
+import { SocialUrl } from './SocialUrl/SocialUrl'
 
 export const Socials = () => {
   const { container } = styles

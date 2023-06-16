@@ -1,13 +1,18 @@
 import { FormControl, FormHelperText, FormLabel, Input } from '@chakra-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useAppDispatch, useAppSelector } from 'hooks/redux'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { addContactsData } from '../../redux/reducers/contactsSlice'
-import { contactsSchema } from '../../schemas/contactsSchema'
-import { ContactsDataTypes } from '../../types/contactsData.types'
+import { addContactsData } from 'redux/reducers/contactsSlice'
+import { contactsSchema } from 'schemas/contactsSchema'
+import { ContactsDataTypes } from 'types/contactsData.types'
+import {
+  MAIL_PLACEHOLDER,
+  NUMBER_INPUT_MASK,
+  NUMBER_PLACEHOLDER,
+} from './contacts.constants'
 import styles from './Contacts.module.scss'
 
 export const Contacts = () => {
@@ -44,9 +49,9 @@ export const Contacts = () => {
         <FormLabel>Номер телефона</FormLabel>
         <Input
           as={InputMask}
-          mask="+7(***)-***-**-**"
+          mask={NUMBER_INPUT_MASK}
           maskChar={null}
-          placeholder="+7(000)000-00-00"
+          placeholder={NUMBER_PLACEHOLDER}
           {...register('phone', {
             required: true,
           })}
@@ -62,7 +67,7 @@ export const Contacts = () => {
           {...register('email', {
             required: true,
           })}
-          placeholder="tim.jennings@example.com"
+          placeholder={MAIL_PLACEHOLDER}
         />
         <FormHelperText color="red.400">{errors.email?.message}</FormHelperText>
       </FormControl>
