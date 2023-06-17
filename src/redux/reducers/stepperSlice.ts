@@ -10,7 +10,7 @@ const initialState: initialStepperType = {
   currentStep: 1,
 }
 
-const stepperSlicer = createSlice({
+export const stepperSlice = createSlice({
   name: 'step',
   initialState,
   reducers: {
@@ -25,5 +25,4 @@ const stepperSlicer = createSlice({
     },
   },
 })
-export const { stepForward, stepperBack, hereWeGoAgain } = stepperSlicer.actions
-export default stepperSlicer.reducer
+export const { stepForward, stepperBack, hereWeGoAgain } = stepperSlice.actions

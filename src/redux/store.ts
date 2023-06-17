@@ -4,12 +4,12 @@ import {
   configureStore,
   type ThunkAction,
 } from '@reduxjs/toolkit'
-import formSlice from './reducers/formSlice'
-import stepperSlice from './reducers/stepperSlice'
+import { formSlice } from './reducers/formSlice'
+import { stepperSlice } from './reducers/stepperSlice'
 
 export const rootReducer = combineReducers({
-  formSlice,
-  stepperSlice,
+  formSlice: formSlice.reducer,
+  stepperSlice: stepperSlice.reducer,
 })
 export const store = configureStore({ reducer: rootReducer })
 export type AppState = ReturnType<typeof store.getState>

@@ -22,7 +22,9 @@ export const UserInfoSelector = ({
 }: FormItemPropsType) => {
   return (
     <FormControl>
-      <FormLabel fontSize="14px">Sex</FormLabel>
+      <FormLabel fontSize="14px" htmlFor="field-sex">
+        Sex
+      </FormLabel>
       <Select
         id="field-sex"
         {...register('sex', { required: 'Require to fill' })}

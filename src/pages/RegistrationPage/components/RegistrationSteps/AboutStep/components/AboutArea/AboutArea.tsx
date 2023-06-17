@@ -18,7 +18,7 @@ interface FormItemPropsType {
 export const AboutArea = ({ register, watch, error }: FormItemPropsType) => {
   return (
     <FormControl>
-      <FormLabel>About</FormLabel>
+      <FormLabel htmlFor="field-about">About</FormLabel>
       <Textarea
         id="field-about"
         {...register('about')}

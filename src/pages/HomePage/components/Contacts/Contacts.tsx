@@ -41,6 +41,7 @@ export const Contacts = () => {
       <FormControl>
         <FormLabel>Номер телефона</FormLabel>
         <Input
+          autoComplete="true"
           as={InputMask}
           mask={NUMBER_INPUT_MASK}
           maskChar={null}
@@ -54,6 +55,7 @@ export const Contacts = () => {
       <FormControl>
         <FormLabel>Email</FormLabel>
         <Input
+          autoComplete="true"
           variant="outline"
           backgroundColor="#0000000A"
           type="email"

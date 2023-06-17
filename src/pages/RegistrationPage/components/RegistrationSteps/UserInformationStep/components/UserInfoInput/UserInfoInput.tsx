@@ -8,6 +8,7 @@ interface FormItemPropsType {
   type: keyof UserInformationDataType
   id: string
   error?: string
+  name: string
 }
 
 export const UserInfoInput = ({
@@ -15,11 +16,15 @@ export const UserInfoInput = ({
   id,
   type,
   error,
+  name,
 }: FormItemPropsType) => {
   return (
     <FormControl>
-      <FormLabel fontSize="14px">Nickname</FormLabel>
+      <FormLabel fontSize="14px" htmlFor={id}>
+        {name}
+      </FormLabel>
       <Input
+        autoComplete="true"
         placeholder="Placeholder"
         id={id}
         type={type}

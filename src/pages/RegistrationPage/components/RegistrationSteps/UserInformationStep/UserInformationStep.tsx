@@ -44,18 +44,21 @@ export const UserInformationStep = ({
           register={register}
           type="nickname"
           id="field-nickname"
+          name="Nickname"
           error={errors.nickname?.message}
         />
         <UserInfoInput
           register={register}
           type="name"
           id="field-name"
+          name="Name"
           error={errors.name?.message}
         />
         <UserInfoInput
           register={register}
           type="sername"
           id="field-sername"
+          name="Sername"
           error={errors.sername?.message}
         />
         <UserInfoSelector

@@ -28,7 +28,7 @@ const initialState: InitialDataType = {
   },
 }
 
-const formSlice = createSlice({
+export const formSlice = createSlice({
   name: 'formSlice',
   initialState,
   reducers: {
@@ -59,4 +59,3 @@ export const {
   addAdvantagesData,
   addAboutData,
 } = formSlice.actions
-export default formSlice.reducer

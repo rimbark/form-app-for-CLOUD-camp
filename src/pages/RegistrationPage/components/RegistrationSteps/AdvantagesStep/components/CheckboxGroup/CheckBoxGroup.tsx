@@ -12,8 +12,8 @@ interface FormItemPropsType {
 export const CheckBoxGroup = ({ register, checkBoxes }: FormItemPropsType) => {
   return (
     <FormControl>
-      <FormLabel>Checkbox group</FormLabel>
-      <Stack direction={['row', 'column']}>
+      <FormLabel htmlFor="stack-check">Checkbox group</FormLabel>
+      <Stack id="stack-check" direction={['row', 'column']}>
         {boxes.map((item, index) => (
           <Checkbox
             key={item.toString()}
