@@ -1,22 +1,23 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import contactsReducer from './reducers/contactsSlice'
-import step1Reducer from './reducers/step1Slice'
-import step2Reducer from './reducers/step2Slice'
-import stepperReducer from './reducers/stepperSlice'
+import {
+  type Action,
+  combineReducers,
+  configureStore,
+  type ThunkAction,
+} from '@reduxjs/toolkit'
+import formSlice from './reducers/formSlice'
+import stepperSlice from './reducers/stepperSlice'
 
 export const rootReducer = combineReducers({
-  contactsReducer,
-  stepperReducer,
-  step1Reducer,
-  step2Reducer,
+  formSlice,
+  stepperSlice,
 })
-
-export const setupStore = () => {
-  return configureStore({
-    reducer: rootReducer,
-  })
-}
-
-export type RootState = ReturnType<typeof rootReducer>
-export type AppStore = ReturnType<typeof setupStore>
-export type AppDispatch = AppStore['dispatch']
+export const store = configureStore({ reducer: rootReducer })
+export type AppState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+export type AppThunk<ReturnType> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>

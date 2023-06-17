@@ -2,4 +2,11 @@
   width: 852px;
   background-color: #00000014;
   height: 1px;
+
+  @media screen and (max-width: 950px) {
+    width: 552px;
+  }
+  @media screen and (max-width: 650px) {
+    width: 352px;
+  }
 }

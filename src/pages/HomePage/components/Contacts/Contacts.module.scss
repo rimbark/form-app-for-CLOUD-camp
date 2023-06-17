@@ -7,6 +7,18 @@
   input {
     width: 400px;
   }
+
+  @media screen and (max-width: 950px) {
+    width: 552px;
+  }
+  @media screen and (max-width: 650px) {
+    width: 352px;
+    align-items: center;
+
+    input {
+      width: 300px;
+    }
+  }
 }
 
 .buttonStart {

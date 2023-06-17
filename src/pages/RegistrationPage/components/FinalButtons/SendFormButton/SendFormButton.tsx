@@ -1,22 +1,22 @@
 import { useAppDispatch } from 'hooks/redux'
 import React from 'react'
 import { stepForward } from 'redux/reducers/stepperSlice'
-import styles from './NavButtonForward.module.scss'
+import styles from './SendFormButton.module.scss'
 
-export const NavButtonForward = () => {
-  const { buttonNext } = styles
+export const SendFormButton = () => {
+  const { sendFormButton } = styles
   const dispatch = useAppDispatch()
   const nextStep = () => {
     dispatch(stepForward())
   }
   return (
     <button
-      id="button-next"
+      id="button-send"
       type="submit"
-      className={buttonNext}
+      className={sendFormButton}
       onClick={nextStep}
     >
-      Далее
+      Отправить
     </button>
   )
 }

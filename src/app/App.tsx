@@ -1,8 +1,8 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { HomePage } from 'pages/HomePage/HomePage'
-import { RegistrationStep1 } from 'pages/RegistrationPage/components/RegistrationSteps/RegistrationStep1/RegistrationStep1'
-import { RegistrationStep2 } from 'pages/RegistrationPage/components/RegistrationSteps/RegistrationStep2/RegistrationStep2'
-import { RegistrationStep3 } from 'pages/RegistrationPage/components/RegistrationSteps/RegistrationStep3/RegistrationStep3'
+import { AboutStep } from 'pages/RegistrationPage/components/RegistrationSteps/AboutStep/AboutStep'
+import { AdvantagesStep } from 'pages/RegistrationPage/components/RegistrationSteps/AdvantagesStep/AdvantagesStep'
+import { UserInformationStep } from 'pages/RegistrationPage/components/RegistrationSteps/UserInformationStep/UserInformationStep'
 import { RegistrationPage } from 'pages/RegistrationPage/RegistrationPage'
 import React from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
@@ -19,16 +19,13 @@ export const App = () => {
           <Route path={'registration/*'} element={<RegistrationPage />}>
             <Route
               path="step_1"
-              element={<RegistrationStep1 navigate={navigate} />}
+              element={<UserInformationStep navigate={navigate} />}
             />
             <Route
               path="step_2"
-              element={<RegistrationStep2 navigate={navigate} />}
+              element={<AdvantagesStep navigate={navigate} />}
             />
-            <Route
-              path="step_3"
-              element={<RegistrationStep3 navigate={navigate} />}
-            />
+            <Route path="step_3" element={<AboutStep navigate={navigate} />} />
           </Route>
         </Routes>
       </div>

@@ -1,7 +1,7 @@
-import { SexNames } from 'pages/RegistrationPage/components/RegistrationSteps/RegistrationStep1/registrationStep1.constants'
+import { SexNames } from 'pages/RegistrationPage/components/RegistrationSteps/UserInformationStep/userInformationStep.constants'
 import { z } from 'zod'
 
-export const step1Schema = z.object({
+export const userInfoStepSchema = z.object({
   nickname: z
     .string()
     .min(1, { message: 'Required field to fill' })

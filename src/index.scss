@@ -2,7 +2,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: Roboto sans-serif;
+  font-family: SBSansInterface sans-serif;
   background-color: #1E1E1E !important;
 }
 
@@ -10,4 +10,10 @@ body {
   --color-black: #242424;
   --color-main: #5558FA;
   --color-additional: #D5E4F7;
+  @media screen and (max-width: 950px) {
+    --color-main: #55a2fa;
+  }
+  @media screen and (max-width: 650px) {
+    --color-main: #05ad70;
+  }
 }

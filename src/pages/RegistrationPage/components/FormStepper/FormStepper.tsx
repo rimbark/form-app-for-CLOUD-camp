@@ -9,19 +9,19 @@ import {
 } from '@chakra-ui/react'
 import { useAppSelector } from 'hooks/redux'
 import React, { useEffect } from 'react'
+import { selectStepper } from 'redux/form.selectors'
 import styles from './FormStepper.module.scss'
 
 export const FormStepper = () => {
   const { container } = styles
 
-  const stepsData = useAppSelector((state) => state.stepperReducer)
+  const stepsData = useAppSelector(selectStepper)
 
   const { activeStep, setActiveStep } = useSteps({
     index: stepsData.currentStep,
     count: stepsData.steps.length,
   })
-  const max = stepsData.steps.length - 1
-  const progressPercent = (activeStep / max) * 100
+  const progressPercent = activeStep === 1 ? 0 : activeStep === 2 ? 50 : 100
 
   useEffect(() => {
     setActiveStep(stepsData.currentStep)

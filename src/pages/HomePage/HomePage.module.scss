@@ -8,4 +8,11 @@
   background-color: #FFFFFF;
   border-radius: 12px 12px 0 0;
   padding-top: 24px;
+
+  @media screen and (max-width: 950px) {
+    width: 600px;
+  }
+  @media screen and (max-width: 650px) {
+    width: 400px;
+  }
 }

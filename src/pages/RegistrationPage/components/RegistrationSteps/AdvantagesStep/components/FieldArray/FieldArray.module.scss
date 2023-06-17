@@ -1,31 +1,3 @@
-.container {
-  width: 680px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 50px;
-}
-
-.formContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-
-  input {
-    width: 300px;
-    height: 44px;
-  }
-}
-
-.buttonsContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .inputWithError {
   display: flex;
   flex-direction: column;
@@ -37,6 +9,12 @@
   flex-direction: row;
   align-items: start;
   gap: 10px;
+}
+
+.inputsArray {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .appendButton {
@@ -67,10 +45,4 @@
   width: 3px;
   height: 20px;
   background-color: var(--color-main);
-}
-
-.inputsArray {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }

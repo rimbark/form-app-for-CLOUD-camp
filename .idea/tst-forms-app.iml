@@ -9,5 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="SBSansDisplay.0.1.0" level="application" />
+    <orderEntry type="library" name="SBSansText.0.1.0" level="application" />
   </component>
 </module>
