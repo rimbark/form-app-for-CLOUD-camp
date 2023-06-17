@@ -3,7 +3,7 @@ import { InitialStep2Type } from 'types/steps.types'
 
 const initialState: InitialStep2Type = {
   advantages: [''],
-  checkBoxes: [2],
+  checkBoxes: [],
   radio: null,
 }
 
@@ -17,13 +17,13 @@ const step2Slice = createSlice({
     changeCheckBoxes: (state, action: PayloadAction<number[]>) => {
       state.checkBoxes = action.payload
     },
-    changeRadioBoxes: (state, action: PayloadAction<number>) => {
+    changeRadio: (state, action: PayloadAction<number>) => {
       state.radio = action.payload
     },
   },
 })
 
-export const { changeAdvantages, changeCheckBoxes, changeRadioBoxes } =
+export const { changeAdvantages, changeCheckBoxes, changeRadio } =
   step2Slice.actions
 
 export default step2Slice.reducer

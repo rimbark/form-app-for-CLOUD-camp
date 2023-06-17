@@ -7,6 +7,7 @@ import {
   IconButton,
   Input,
   Radio,
+  RadioGroup,
   Stack,
 } from '@chakra-ui/react'
 import { NavButtonBack } from 'components/NavButtons/NavButtonBack/NavButtonBack'
@@ -14,7 +15,11 @@ import { NavButtonForward } from 'components/NavButtons/NavButtonForward/NavButt
 import { useAppDispatch, useAppSelector } from 'hooks/redux'
 import React, { useMemo } from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
-import { changeAdvantages, changeCheckBoxes } from 'redux/reducers/step2Slice'
+import {
+  changeAdvantages,
+  changeCheckBoxes,
+  changeRadio,
+} from 'redux/reducers/step2Slice'
 import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
 import { boxes } from './registrationStep2.constants'
 import styles from './RegistrationStep2.module.scss'
@@ -37,6 +42,7 @@ export const RegistrationStep2 = ({
   const newAdvantages = initialAdvantages.advantages.map((value) => {
     return { value }
   })
+
   const {
     control,
     register,
@@ -46,7 +52,7 @@ export const RegistrationStep2 = ({
     defaultValues: {
       advantages: newAdvantages,
     },
-    mode: 'onBlur',
+    mode: 'onTouched',
     reValidateMode: 'onSubmit',
   })
   const { fields, append, remove } = useFieldArray({
@@ -60,8 +66,10 @@ export const RegistrationStep2 = ({
       .filter((item) => typeof item === 'string')
       .map(Number)
     dispatch(changeCheckBoxes(refactoredCheckboxData))
+    dispatch(changeRadio(Number(data.radio)))
     // navigate('registration/step_3/')
   }
+  console.log(initialAdvantages.radio)
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={container}>
@@ -119,27 +127,22 @@ export const RegistrationStep2 = ({
             []
           )}
         </FormControl>
-        <FormControl>
+        <FormControl id="position">
           <FormLabel>Radio group</FormLabel>
-          {useMemo(
-            () => (
-              <Stack>
-                {boxes.map((item, index) => (
-                  <Radio
-                    key={item.toString()}
-                    id={`field-radio-group-option-${index}`}
-                    defaultChecked={initialAdvantages.radio === item}
-                    size="md"
-                    value={item}
-                    {...register(`radio.${index}`)}
-                  >
-                    {item}
-                  </Radio>
-                ))}
-              </Stack>
-            ),
-            []
-          )}
+          <RadioGroup defaultValue={initialAdvantages.radio?.toString()}>
+            <Stack direction="column">
+              {boxes.map((item) => (
+                <Radio
+                  key={item.toString()}
+                  id={`field-radio-group-option-${item}`}
+                  value={item.toString()}
+                  {...register('radio')}
+                >
+                  {item}
+                </Radio>
+              ))}
+            </Stack>
+          </RadioGroup>
         </FormControl>
         <div className={buttonsContainer}>
           <NavButtonBack />
@@ -149,3 +152,11 @@ export const RegistrationStep2 = ({
     </form>
   )
 }
+// <Radio
+//   defaultChecked={initialAdvantages.radio === item}
+//   size="md"
+//   value={item}
+//   {...register(`radio.${index}`)}
+// >
+//   {item}
+// </Radio>
