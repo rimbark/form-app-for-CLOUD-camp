@@ -8,7 +8,7 @@ export const socialNetworks = [
     socialName: 'GitHab',
   },
   {
-    url: 'https://novosibirsk.hh.ru/resume/0a5110a0ff08cf0ccf0039ed1f544d6455475a',
+    url: 'https://hh.ru/resume/0a5110a0ff08cf0ccf0039ed1f544d6455475a',
     socialName: 'Resume',
   },
 ]
