@@ -21,8 +21,8 @@ export const AdvantagesRadioGroup = ({
 }: FormItemPropsType) => {
   return (
     <FormControl>
-      <FormLabel htmlFor="radio-group">Radio group</FormLabel>
-      <RadioGroup id="radio-group" defaultValue={radio?.toString()}>
+      <FormLabel fontSize="14px">Radio group</FormLabel>
+      <RadioGroup defaultValue={radio?.toString()}>
         <Stack direction="column">
           {boxes.map((item) => (
             <Radio

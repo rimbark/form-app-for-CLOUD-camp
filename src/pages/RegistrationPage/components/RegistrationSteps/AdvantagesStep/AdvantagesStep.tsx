@@ -9,6 +9,7 @@ import React from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { selectAdvantages } from 'redux/form.selectors'
 import { addAdvantagesData } from 'redux/reducers/formSlice'
+import { stepForward } from 'redux/reducers/stepperSlice'
 import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
 import styles from './AdvantagesStep.module.scss'
 
@@ -49,6 +50,7 @@ export const AdvantagesStep = ({ navigate }: RegistrationStepsPropsTypes) => {
       radio: Number(radio),
     }
     dispatch(addAdvantagesData(refactoredData))
+    dispatch(stepForward())
     navigate('registration/step_3/')
   }
 

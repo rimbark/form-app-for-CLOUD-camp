@@ -8,6 +8,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { selectUserInformation } from 'redux/form.selectors'
 import { addUserInformationData } from 'redux/reducers/formSlice'
+import { stepForward } from 'redux/reducers/stepperSlice'
 import { userInfoStepSchema } from 'schemas/userInfoStepSchema'
 import { UserInformationDataType } from 'types/steps.types'
 import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
@@ -34,6 +35,7 @@ export const UserInformationStep = ({
 
   const onSubmit = (data: UserInformationDataType) => {
     dispatch(addUserInformationData(data))
+    dispatch(stepForward())
     navigate('registration/step_2/')
   }
 

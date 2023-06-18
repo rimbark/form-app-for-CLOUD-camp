@@ -11,6 +11,7 @@ import InputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
 import { selectContacts } from 'redux/form.selectors'
 import { addContactsData } from 'redux/reducers/formSlice'
+import { firstStep } from 'redux/reducers/stepperSlice'
 import { contactsSchema } from 'schemas/contactsSchema'
 import { ContactsDataType } from 'types/steps.types'
 import styles from './Contacts.module.scss'
@@ -34,6 +35,7 @@ export const Contacts = () => {
 
   const onSubmit = (data: ContactsDataType) => {
     dispatch(addContactsData(data))
+    dispatch(firstStep())
     navigate('registration/step_1')
   }
 

@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import { selectAbout } from 'redux/form.selectors'
 import { sendFormDataToServer } from 'redux/reducers/actionCreator'
 import { addAboutData } from 'redux/reducers/formSlice'
+import { finalStep } from 'redux/reducers/stepperSlice'
 import { aboutStepSchema } from 'schemas/aboutStepSchema'
 import { AboutDataType } from 'types/steps.types'
 import styles from './AboutStep.module.scss'
@@ -39,6 +40,7 @@ export const AboutStep = ({ navigate }: RegistrationStepsPropsTypes) => {
 
   const onSubmit = (data: AboutDataType) => {
     dispatch(addAboutData(data))
+    dispatch(finalStep())
     dispatch(sendFormDataToServer())
       .then(unwrapResult)
       .then((result) => {
@@ -51,28 +53,30 @@ export const AboutStep = ({ navigate }: RegistrationStepsPropsTypes) => {
   }
 
   return (
-    <form className={container} onSubmit={handleSubmit(onSubmit)}>
-      <div className={formContainer}>
-        <AboutArea
-          register={register}
-          watch={watch}
-          error={errors.about?.message}
-        />
-        <div className={buttonsContainer}>
-          <NavButtonBack />
-          <SendFormButton />
-          <ModalDone
-            toggleModal={toggleModal}
-            modal={modalSuccess}
-            navigate={navigate}
+    <>
+      <form className={container} onSubmit={handleSubmit(onSubmit)}>
+        <div className={formContainer}>
+          <AboutArea
+            register={register}
+            watch={watch}
+            error={errors.about?.message}
           />
-          <ModalFail
-            toggleModal={toggleModal}
-            modal={modalFail}
-            navigate={navigate}
-          />
+          <div className={buttonsContainer}>
+            <NavButtonBack />
+            <SendFormButton />
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+      <ModalDone
+        toggleModal={toggleModal}
+        modal={modalSuccess}
+        navigate={navigate}
+      />
+      <ModalFail
+        toggleModal={toggleModal}
+        modal={modalFail}
+        navigate={navigate}
+      />
+    </>
   )
 }
