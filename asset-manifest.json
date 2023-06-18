@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/registration-form-app/static/css/main.de2ead17.css",
-    "main.js": "/registration-form-app/static/js/main.5938d773.js",
-    "index.html": "/registration-form-app/index.html",
-    "main.de2ead17.css.map": "/registration-form-app/static/css/main.de2ead17.css.map",
-    "main.5938d773.js.map": "/registration-form-app/static/js/main.5938d773.js.map"
+    "main.css": "/form-app-for-CLOUD-camp/static/css/main.de2ead17.css",
+    "main.js": "/form-app-for-CLOUD-camp/static/js/main.5938d773.js",
+    "index.html": "/form-app-for-CLOUD-camp/index.html",
+    "main.de2ead17.css.map": "/form-app-for-CLOUD-camp/static/css/main.de2ead17.css.map",
+    "main.5938d773.js.map": "/form-app-for-CLOUD-camp/static/js/main.5938d773.js.map"
   },
   "entrypoints": [
     "static/css/main.de2ead17.css",
