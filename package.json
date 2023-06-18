@@ -1,7 +1,7 @@
 {
   "name": "tst-forms-app",
   "version": "0.1.0",
-  "homepage": "https://rimbark.github.io/registration-form-app",
+  "homepage": "https://rimbark.github.io/registration-form-app/",
   "private": true,
   "browserslist": {
     "production": [
