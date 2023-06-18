@@ -1,3 +1,4 @@
+import closeIcon from 'images/closeIcon.png'
 import sendFail from 'images/sendFail.png'
 import { ModalDoneTypes } from 'pages/RegistrationPage/components/ModalDone/modalDone.types'
 import React from 'react'
@@ -11,6 +12,7 @@ export const ModalFail = ({ toggleModal, modal }: ModalDoneTypes) => {
     heading,
     failImage,
     closeButton,
+    headBlock,
   } = styles
 
   return (
@@ -19,7 +21,12 @@ export const ModalFail = ({ toggleModal, modal }: ModalDoneTypes) => {
         <div className={modalContainer}>
           <div className={overlay} />
           <div className={modalContent}>
-            <div className={heading}>Ошибка</div>
+            <div className={headBlock}>
+              <div className={heading}>Ошибка</div>
+              <div role="button" tabIndex={0} onClick={toggleModal}>
+                <img src={closeIcon} alt="close" />
+              </div>
+            </div>
             <img src={sendFail} alt="success" className={failImage} />
             <button
               id="button-close"

@@ -62,3 +62,9 @@
   line-height: 20px;
   color: white;
 }
+
+.headBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
