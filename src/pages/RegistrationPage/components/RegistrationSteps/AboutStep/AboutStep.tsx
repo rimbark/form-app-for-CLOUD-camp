@@ -6,9 +6,9 @@ import { SendFormButton } from 'pages/RegistrationPage/components/FinalButtons/S
 import { ModalDone } from 'pages/RegistrationPage/components/ModalDone/ModalDone'
 import { ModalFail } from 'pages/RegistrationPage/components/ModalFalse/ModalFail'
 import { AboutArea } from 'pages/RegistrationPage/components/RegistrationSteps/AboutStep/components/AboutArea/AboutArea'
-import { RegistrationStepsPropsTypes } from 'pages/RegistrationPage/components/RegistrationSteps/registrationStepsProps.types'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { selectAbout } from 'redux/form.selectors'
 import { sendFormDataToServer } from 'redux/reducers/actionCreator'
 import { addAboutData } from 'redux/reducers/formSlice'
@@ -17,9 +17,10 @@ import { aboutStepSchema } from 'schemas/aboutStepSchema'
 import { AboutDataType } from 'types/steps.types'
 import styles from './AboutStep.module.scss'
 
-export const AboutStep = ({ navigate }: RegistrationStepsPropsTypes) => {
+export const AboutStep = () => {
   const { container, formContainer, buttonsContainer } = styles
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const initialText = useAppSelector(selectAbout)
   const [modalSuccess, setModalSuccess] = useState(false)

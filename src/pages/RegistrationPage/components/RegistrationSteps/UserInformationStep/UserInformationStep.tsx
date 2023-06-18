@@ -6,19 +6,18 @@ import { UserInfoInput } from 'pages/RegistrationPage/components/RegistrationSte
 import { UserInfoSelector } from 'pages/RegistrationPage/components/RegistrationSteps/UserInformationStep/components/UserInfoSelector/UserInfoSelector'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { selectUserInformation } from 'redux/form.selectors'
 import { addUserInformationData } from 'redux/reducers/formSlice'
 import { stepForward } from 'redux/reducers/stepperSlice'
 import { userInfoStepSchema } from 'schemas/userInfoStepSchema'
 import { UserInformationDataType } from 'types/steps.types'
-import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
 import styles from './UserInformationStep.module.scss'
 
-export const UserInformationStep = ({
-  navigate,
-}: RegistrationStepsPropsTypes) => {
+export const UserInformationStep = () => {
   const { container, buttonsContainer, formContainer } = styles
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const initialValues = useAppSelector(selectUserInformation)
 
@@ -36,7 +35,7 @@ export const UserInformationStep = ({
   const onSubmit = (data: UserInformationDataType) => {
     dispatch(addUserInformationData(data))
     dispatch(stepForward())
-    navigate('registration/step_2/')
+    navigate('/registration/step_2/')
   }
 
   return (

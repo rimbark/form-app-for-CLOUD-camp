@@ -7,15 +7,16 @@ import { CheckBoxGroup } from 'pages/RegistrationPage/components/RegistrationSte
 import { FieldArray } from 'pages/RegistrationPage/components/RegistrationSteps/AdvantagesStep/components/FieldArray/FieldArray'
 import React from 'react'
 import { useFieldArray, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { selectAdvantages } from 'redux/form.selectors'
 import { addAdvantagesData } from 'redux/reducers/formSlice'
 import { stepForward } from 'redux/reducers/stepperSlice'
-import { RegistrationStepsPropsTypes } from '../registrationStepsProps.types'
 import styles from './AdvantagesStep.module.scss'
 
-export const AdvantagesStep = ({ navigate }: RegistrationStepsPropsTypes) => {
+export const AdvantagesStep = () => {
   const { container, formContainer, buttonsContainer } = styles
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const initialValues = useAppSelector(selectAdvantages)
   const refactoredAdvantages = initialValues.advantages.map((value) => {
@@ -54,7 +55,7 @@ export const AdvantagesStep = ({ navigate }: RegistrationStepsPropsTypes) => {
     }
     dispatch(addAdvantagesData(refactoredData))
     dispatch(stepForward())
-    navigate('registration/step_3/')
+    navigate('/registration/step_3/')
   }
 
   return (
