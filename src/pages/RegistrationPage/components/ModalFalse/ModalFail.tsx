@@ -12,6 +12,7 @@ export const ModalFail = ({ toggleModal, modal }: ModalDoneTypes) => {
     failImage,
     closeButton,
   } = styles
+
   return (
     <>
       {modal && (

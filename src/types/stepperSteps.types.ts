@@ -1,9 +1,9 @@
-export interface initialStepperType {
-  steps: stepType[]
+export interface InitialStepperType {
+  steps: StepType[]
   currentStep: number
 }
 
-interface stepType {
+interface StepType {
   title: string
   description: string
 }

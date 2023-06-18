@@ -20,12 +20,11 @@ import styles from './AboutStep.module.scss'
 export const AboutStep = ({ navigate }: RegistrationStepsPropsTypes) => {
   const { container, formContainer, buttonsContainer } = styles
   const dispatch = useAppDispatch()
+
+  const initialText = useAppSelector(selectAbout)
   const [modalSuccess, setModalSuccess] = useState(false)
   const [modalFail, setModalFail] = useState(false)
-  const toggleModal = () => {
-    setModalFail(!modalFail)
-  }
-  const initialText = useAppSelector(selectAbout)
+
   const {
     register,
     handleSubmit,
@@ -37,6 +36,10 @@ export const AboutStep = ({ navigate }: RegistrationStepsPropsTypes) => {
     defaultValues: initialText,
     reValidateMode: 'onSubmit',
   })
+
+  const toggleModal = () => {
+    setModalFail(!modalFail)
+  }
 
   const onSubmit = (data: AboutDataType) => {
     dispatch(addAboutData(data))

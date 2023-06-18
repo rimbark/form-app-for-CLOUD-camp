@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initialStepperType } from 'types/stepperSteps.types'
+import { InitialStepperType } from 'types/stepperSteps.types'
 
-const initialState: initialStepperType = {
+const initialState: InitialStepperType = {
   steps: [
-    { title: 'First', description: 'Contact Info' },
-    { title: 'Second', description: 'Date & Time' },
-    { title: 'Third', description: 'Select Rooms' },
+    { title: '1', description: 'Contact Info' },
+    { title: '2', description: 'Advantages' },
+    { title: '3', description: 'About' },
   ],
   currentStep: 1,
 }

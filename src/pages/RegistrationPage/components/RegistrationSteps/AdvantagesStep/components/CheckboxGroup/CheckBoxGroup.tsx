@@ -12,6 +12,7 @@ interface FormItemPropsType {
 
 export const CheckBoxGroup = ({ register, checkBoxes }: FormItemPropsType) => {
   const { labelContainer } = styles
+
   return (
     <FormControl>
       <span className={labelContainer}>Checkbox group</span>

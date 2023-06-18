@@ -7,6 +7,7 @@ import styles from './HomePage.module.scss'
 
 export const HomePage = () => {
   const { container } = styles
+
   return (
     <div className={container}>
       <HomePageHeader nameLastName={nameLastName} />

@@ -31,12 +31,12 @@ export const FormStepper = () => {
   return (
     <div className={container}>
       <Stepper size="xs" index={activeStep - 1} gap="0">
-        {stepsData.steps.map((step, index) => (
+        {stepsData.steps.map((step) => (
           <Step key={step.title}>
             <StepIndicator zIndex={3} bg="white">
               <StepStatus complete={<StepIcon />} active="" />
             </StepIndicator>
-            <div className={stepNum}>{index + 1}</div>
+            <div className={stepNum}>{step.title}</div>
           </Step>
         ))}
       </Stepper>

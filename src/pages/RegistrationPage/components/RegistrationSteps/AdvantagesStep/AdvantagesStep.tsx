@@ -16,6 +16,7 @@ import styles from './AdvantagesStep.module.scss'
 export const AdvantagesStep = ({ navigate }: RegistrationStepsPropsTypes) => {
   const { container, formContainer, buttonsContainer } = styles
   const dispatch = useAppDispatch()
+
   const initialValues = useAppSelector(selectAdvantages)
   const refactoredAdvantages = initialValues.advantages.map((value) => {
     return { value }
@@ -33,10 +34,12 @@ export const AdvantagesStep = ({ navigate }: RegistrationStepsPropsTypes) => {
     mode: 'onBlur',
     reValidateMode: 'onBlur',
   })
+
   const { fields, append, remove } = useFieldArray({
     name: 'advantages',
     control,
   })
+
   const onSubmit = ({
     advantages,
     checkBoxes,

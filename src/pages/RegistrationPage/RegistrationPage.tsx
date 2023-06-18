@@ -6,6 +6,7 @@ import styles from './RegistrationPage.module.scss'
 export const RegistrationPage = () => {
   const { container, changingContainer } = styles
   const navigate = useNavigate()
+
   return (
     <div className={container}>
       <FormStepper />

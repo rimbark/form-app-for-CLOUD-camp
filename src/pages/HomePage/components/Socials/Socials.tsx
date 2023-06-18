@@ -5,6 +5,7 @@ import { SocialUrl } from './SocialUrl/SocialUrl'
 
 export const Socials = () => {
   const { container } = styles
+
   return (
     <div className={container}>
       {socialNetworks.map((item) => (

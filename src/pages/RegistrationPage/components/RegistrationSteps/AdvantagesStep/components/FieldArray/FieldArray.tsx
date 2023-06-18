@@ -36,6 +36,7 @@ export const FieldArray = ({
     appendButton,
     labelContainer,
   } = styles
+
   return (
     <FormControl>
       <span className={labelContainer}>Advantages</span>
@@ -46,10 +47,6 @@ export const FieldArray = ({
               <Input
                 id={`field-advantages-${index}`}
                 {...register(`advantages.${index}.value`, {
-                  maxLength: {
-                    value: 50,
-                    message: 'Max 50 symbols',
-                  },
                   required: 'Required to fill, or just delete it',
                 })}
               />

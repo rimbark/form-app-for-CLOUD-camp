@@ -8,6 +8,7 @@ import styles from './HomePageHeader.module.scss'
 export const HomePageHeader = ({ nameLastName }: NameLastNameTypes) => {
   const { container, headBlockContainerItem } = styles
   const { name, lastname } = nameLastName
+
   return (
     <div className={container}>
       <CircleWithInitials name={name} lastname={lastname} />
