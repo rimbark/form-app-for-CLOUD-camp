@@ -1,6 +1,11 @@
 import { FormControl, FormHelperText, FormLabel, Input } from '@chakra-ui/react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useAppDispatch, useAppSelector } from 'hooks/redux'
+import {
+  MAIL_PLACEHOLDER,
+  NUMBER_INPUT_MASK,
+  NUMBER_PLACEHOLDER,
+} from 'pages/HomePage/components/Contacts/contacts.constants'
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
 import { useNavigate } from 'react-router-dom'
@@ -9,10 +14,6 @@ import { addContactsData } from 'redux/reducers/formSlice'
 import { contactsSchema } from 'schemas/contactsSchema'
 import { ContactsDataType } from 'types/steps.types'
 import styles from './Contacts.module.scss'
-
-export const NUMBER_INPUT_MASK = '+7(***)-***-**-**'
-export const NUMBER_PLACEHOLDER = '+7(000)000-00-00'
-export const MAIL_PLACEHOLDER = 'tim.jennings@example.com'
 
 export const Contacts = () => {
   const { container, buttonStart } = styles

@@ -30,7 +30,7 @@ export const UserInfoInput = ({
         type={type}
         {...register(type)}
       />
-      <FormHelperText fontSize="12px">{error && ''}</FormHelperText>
+      <FormHelperText fontSize="12px">{error}</FormHelperText>
     </FormControl>
   )
 }

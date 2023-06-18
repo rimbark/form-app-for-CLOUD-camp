@@ -21,7 +21,7 @@ export const ModalFail = ({ toggleModal, modal }: ModalDoneTypes) => {
             <div className={heading}>Ошибка</div>
             <img src={sendFail} alt="success" className={failImage} />
             <button
-              id="button-to-close"
+              id="button-close"
               onClick={toggleModal}
               className={closeButton}
             >
