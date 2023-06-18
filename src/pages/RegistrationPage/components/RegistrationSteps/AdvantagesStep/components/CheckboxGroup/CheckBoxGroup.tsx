@@ -1,8 +1,9 @@
-import { Checkbox, FormControl, FormLabel, Stack } from '@chakra-ui/react'
+import { Checkbox, FormControl, Stack } from '@chakra-ui/react'
 import { boxes } from 'pages/RegistrationPage/components/RegistrationSteps/AdvantagesStep/advantagesStep.constants'
 import { AdvantagesFormsDataType } from 'pages/RegistrationPage/components/RegistrationSteps/AdvantagesStep/advantagesStep.types'
 import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
+import styles from '../FieldArray/FieldArray.module.scss'
 
 interface FormItemPropsType {
   register: UseFormRegister<AdvantagesFormsDataType>
@@ -10,9 +11,10 @@ interface FormItemPropsType {
 }
 
 export const CheckBoxGroup = ({ register, checkBoxes }: FormItemPropsType) => {
+  const { labelContainer } = styles
   return (
     <FormControl>
-      <FormLabel fontSize="14px">Checkbox group</FormLabel>
+      <span className={labelContainer}>Checkbox group</span>
       <Stack direction={['row', 'column']}>
         {boxes.map((item, index) => (
           <Checkbox

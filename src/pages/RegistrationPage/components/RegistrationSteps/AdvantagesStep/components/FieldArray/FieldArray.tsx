@@ -2,7 +2,6 @@ import { DeleteIcon } from '@chakra-ui/icons'
 import {
   FormControl,
   FormHelperText,
-  FormLabel,
   IconButton,
   Input,
 } from '@chakra-ui/react'
@@ -30,10 +29,16 @@ export const FieldArray = ({
   remove,
   append,
 }: FormItemPropsType) => {
-  const { inputBlock, inputWithError, inputsArray, appendButton } = styles
+  const {
+    inputBlock,
+    inputWithError,
+    inputsArray,
+    appendButton,
+    labelContainer,
+  } = styles
   return (
     <FormControl>
-      <FormLabel fontSize="14px">Advantages</FormLabel>
+      <span className={labelContainer}>Advantages</span>
       <div className={inputsArray}>
         {fields.map((field, index) => (
           <div key={field.id} className={inputBlock}>

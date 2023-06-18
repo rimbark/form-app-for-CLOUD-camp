@@ -1,14 +1,9 @@
-import {
-  FormControl,
-  FormLabel,
-  Radio,
-  RadioGroup,
-  Stack,
-} from '@chakra-ui/react'
+import { FormControl, Radio, RadioGroup, Stack } from '@chakra-ui/react'
 import { boxes } from 'pages/RegistrationPage/components/RegistrationSteps/AdvantagesStep/advantagesStep.constants'
 import { AdvantagesFormsDataType } from 'pages/RegistrationPage/components/RegistrationSteps/AdvantagesStep/advantagesStep.types'
 import React from 'react'
 import { UseFormRegister } from 'react-hook-form'
+import styles from '../FieldArray/FieldArray.module.scss'
 
 interface FormItemPropsType {
   register: UseFormRegister<AdvantagesFormsDataType>
@@ -19,9 +14,10 @@ export const AdvantagesRadioGroup = ({
   register,
   radio,
 }: FormItemPropsType) => {
+  const { labelContainer } = styles
   return (
     <FormControl>
-      <FormLabel fontSize="14px">Radio group</FormLabel>
+      <span className={labelContainer}>Radio group</span>
       <RadioGroup defaultValue={radio?.toString()}>
         <Stack direction="column">
           {boxes.map((item) => (
